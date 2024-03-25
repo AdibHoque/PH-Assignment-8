@@ -57,7 +57,7 @@ export default function NavBar() {
           </ul>
         </div>
         <Link className="text-[#131313] hover:text-[#23BE0A] font-bold text-2xl lg:text-3xl leading-6">
-          Book Bank
+          Book Bash
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
