@@ -1,0 +1,80 @@
+[
+  {
+    "bookId": 1,
+    "bookName": "The Dating Playbook for Men",
+    "author": "Andrew Ferebee",
+    "image": "https://i.ibb.co/fpPfvXr/book1.png",
+    "review": "A comprehensive guide for men seeking to improve their dating lives.",
+    "totalPages": 250,
+    "rating": 4.5,
+    "category": "Self-help",
+    "tags": ["Relationships", "Dating", "Self-improvement"],
+    "publisher": "CreateSpace Independent Publishing Platform",
+    "yearOfPublishing": 2015
+  },
+  {
+    "bookId": 2,
+    "bookName": "Why Do You Hate Money?",
+    "author": "Barry L. Martin",
+    "image": "https://i.ibb.co/vXQ7LG3/book2.png",
+    "review": "A thought-provoking exploration of personal finance psychology.",
+    "totalPages": 180,
+    "rating": 4.2,
+    "category": "Finance",
+    "tags": ["Personal Finance", "Psychology", "Money Management"],
+    "publisher": "Wiley",
+    "yearOfPublishing": 2020
+  },
+  {
+    "bookId": 3,
+    "bookName": "The Hate U Give",
+    "author": "Angie Thomas",
+    "image": "https://i.ibb.co/0BZXLWm/book3.png",
+    "review": "A powerful and timely novel addressing themes of racism and police violence.",
+    "totalPages": 464,
+    "rating": 4.7,
+    "category": "Fiction",
+    "tags": ["Social Issues", "Young Adult", "Race"],
+    "publisher": "Balzer + Bray",
+    "yearOfPublishing": 2017
+  },
+  {
+    "bookId": 4,
+    "bookName": "The Scholarship Monthly Planner",
+    "author": "Scholarship Advisor",
+    "image": "https://i.ibb.co/k5M9HLf/book4.png",
+    "review": "A helpful tool for organizing scholarship applications and deadlines.",
+    "totalPages": 100,
+    "rating": 4.0,
+    "category": "Education",
+    "tags": ["Scholarships", "Planner", "College Prep"],
+    "publisher": "Self-Published",
+    "yearOfPublishing": 2021
+  },
+  {
+    "bookId": 5,
+    "bookName": "Annotated Texas Family Code 2019",
+    "author": "Legislative Council",
+    "image": "https://i.ibb.co/4stLtqB/book5.png",
+    "review": "A comprehensive reference for Texas family law practitioners.",
+    "totalPages": 800,
+    "rating": 4.6,
+    "category": "Law",
+    "tags": ["Legal", "Texas Law", "Family Law"],
+    "publisher": "Thomson Reuters",
+    "yearOfPublishing": 2019
+  },
+  {
+    "bookId": 6,
+    "bookName": "Loving Jesus More",
+    "author": "Philip Graham Ryken",
+    "image": "https://i.ibb.co/VCfSCrq/book6.png",
+    "review": "A spiritual guide to deepen one's relationship with Jesus Christ.",
+    "totalPages": 150,
+    "rating": 4.8,
+    "category": "Religion",
+    "tags": ["Christian Living", "Faith", "Spirituality"],
+    "publisher": "Crossway",
+    "yearOfPublishing": 2004
+  }
+]

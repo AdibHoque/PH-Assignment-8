@@ -56,7 +56,7 @@ export default function NavBar() {
             {links}
           </ul>
         </div>
-        <Link className="text-[#131313] font-bold text-2xl lg:text-3xl leading-6">
+        <Link className="text-[#131313] hover:text-[#23BE0A] font-bold text-2xl lg:text-3xl leading-6">
           Book Bank
         </Link>
       </div>
