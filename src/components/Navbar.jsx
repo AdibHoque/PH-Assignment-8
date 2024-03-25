@@ -1,16 +1,27 @@
 import {Link, NavLink} from "react-router-dom";
+import "../index.css";
 
 export default function NavBar() {
+  const navClass = ({isActive, isPending}) =>
+    isPending || isActive
+      ? "text-[#23BE0A] hover:text-[#23BE0A] border border-[#23BE0A] font-semibold"
+      : "border border-white";
   const links = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/" className={navClass}>
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/listedbooks">Listed Books</NavLink>
+        <NavLink to="/listedbooks" className={navClass}>
+          Listed Books
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/pagestoread">Pages to Read</NavLink>
+        <NavLink to="/pagestoread" className={navClass}>
+          Pages to Read
+        </NavLink>
       </li>
     </>
   );
@@ -18,10 +29,14 @@ export default function NavBar() {
     <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="p-2 mr-2 btn btn-ghost btn-md bg-[#23BE0A] lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="size-8 text-white"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -41,10 +56,12 @@ export default function NavBar() {
             {links}
           </ul>
         </div>
-        <Link className="text-[#131313] font-bold text-3xl">Book Vibe</Link>
+        <Link className="text-[#131313] font-bold text-2xl lg:text-3xl leading-6">
+          Book Bank
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{links}</ul>
+        <ul className="menu menu-horizontal px-2">{links}</ul>
       </div>
       <div className="navbar-end flex gap-3">
         <a className="btn text-white bg-[#23BE0A]">Sign In</a>
