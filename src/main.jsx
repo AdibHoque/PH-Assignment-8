@@ -8,6 +8,7 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import Home from "./components/Home.jsx";
 import Book from "./components/Book.jsx";
 import ListedBooks from "./components/ListedBooks.jsx";
+import PagesToRead from "./components/PagesToRead.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/pagestoread",
-        element: <App></App>,
+        element: <PagesToRead></PagesToRead>,
       },
       {
         path: "/books/:id",
