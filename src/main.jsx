@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import {createBrowserRouter, RouterProvider, useParams} from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import "./index.css";
 import Root from "./components/Root.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import Home from "./components/Home.jsx";
 import Book from "./components/Book.jsx";
+import ListedBooks from "./components/ListedBooks.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/listedbooks",
-        element: <App></App>,
+        element: <ListedBooks></ListedBooks>,
       },
       {
         path: "/pagestoread",

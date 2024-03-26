@@ -1,5 +1,3 @@
-import {useEffect, useState} from "react";
-import Card from "./Card";
 import {useLoaderData, useParams} from "react-router-dom";
 
 function Badge({name}) {
@@ -9,14 +7,63 @@ function Badge({name}) {
     </div>
   );
 }
+function handleRead(data) {
+  const db = localStorage.getItem("read");
+  if (!db) {
+    let arr = [];
+    arr.push(data);
+    localStorage.setItem("read", JSON.stringify(arr));
+    console.log("Created item");
+  } else {
+    const parsedDb = JSON.parse(db);
+    const exists = parsedDb.find((e) => e.bookId == data.bookId);
+    if (exists) {
+      return console.log("item already exists");
+    } else {
+      parsedDb.push(data);
+      localStorage.setItem("read", JSON.stringify(parsedDb));
+      console.log("pushed new data");
+    }
+  }
+}
+
+function handleWishlist(data) {
+  const readDb = localStorage.getItem("read");
+  const wishDb = localStorage.getItem("wishlist");
+
+  if (readDb) {
+    const parsedDb = JSON.parse(readDb);
+    const exists = parsedDb.find((e) => e.bookId == data.bookId);
+    if (exists) {
+      return console.log("You already read this book");
+    } else {
+      if (wishDb) {
+        const parsedWishDb = JSON.parse(wishDb);
+        const exists = parsedWishDb.find((e) => e.bookId == data.bookId);
+        if (exists) {
+          return console.log("You already wishlisted this book");
+        } else {
+          parsedWishDb.push(data);
+          localStorage.setItem("wishlist", JSON.stringify(parsedWishDb));
+          console.log("pushed new wishdata");
+        }
+      } else {
+        let arr = [];
+        arr.push(data);
+        localStorage.setItem("wishlist", JSON.stringify(arr));
+        console.log("Created new wish");
+      }
+    }
+  }
+}
 
 export default function Book() {
   const {id} = useParams();
   const loadData = useLoaderData();
+  console.log(localStorage.getItem("read"));
   const data = loadData[id - 1];
-
+  if (!data.tags) return (window.location.href = "/");
   const {
-    bookId,
     bookName,
     author,
     image,
@@ -30,10 +77,13 @@ export default function Book() {
   } = data;
   return (
     <>
-      {/* {data ? <Card key={Math.random() * 9999} data={data[id - 1]}></Card> : ""} */}
       <div className="flex flex-col lg:flex-row gap-2">
-        <div className="lg:w-1/2 bg-[#1313130D] p-10  flex justify-center items-center">
-          <img className="max-h-[80vh]" src={image} alt={bookName} />
+        <div className="lg:w-1/2 bg-[#1313130D] p-10 flex justify-center items-center">
+          <img
+            className="max-h-[80vh] animate-once animate-fade"
+            src={image}
+            alt={bookName}
+          />
         </div>
 
         <div className="lg:w-1/2 px-2 md:pl-8">
@@ -80,10 +130,18 @@ export default function Book() {
             </tbody>
           </table>
           <div className="flex gap-4">
-            <a className="btn text-[#131313] bg-transparent border border-[#1313134D]">
+            <a
+              onClick={() => handleRead(data)}
+              className="btn text-[#131313] bg-transparent border border-[#1313134D]"
+            >
               Read
             </a>
-            <a className="btn text-white bg-[#59C6D2]">Wishlist</a>
+            <a
+              onClick={() => handleWishlist(data)}
+              className="btn text-white bg-[#59C6D2]"
+            >
+              Wishlist
+            </a>
           </div>
         </div>
       </div>
