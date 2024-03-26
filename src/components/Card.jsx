@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 const star = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -25,32 +27,34 @@ function Badge({name}) {
 }
 
 export default function Card({data}) {
-  const {image, tags, bookName, author, category, rating} = data;
+  const {image, tags, bookName, author, category, rating, bookId} = data;
   return (
     <>
-      <div className="card card-compact  bg-base-100 p-4 border border-[F3F3F3]">
-        <figure className="bg-[#F3F3F3] p-4 rounded-2xl">
-          <img className="max-w-xs max-h-64" src={image} alt={bookName} />
-        </figure>
-        <div className="my-4">
-          <div className="flex gap-x-2 mb-2">
-            {tags.map((t) => (
-              <Badge key={Math.random() * 9999} name={t}></Badge>
-            ))}
+      <Link to={`/books/${bookId}`}>
+        <div className="card card-compact  bg-base-100 p-4 border border-[F3F3F3]">
+          <figure className="bg-[#F3F3F3] p-4 rounded-2xl">
+            <img className="max-w-xs max-h-64" src={image} alt={bookName} />
+          </figure>
+          <div className="my-4">
+            <div className="flex gap-x-2 mb-2">
+              {tags.map((t) => (
+                <Badge key={Math.random() * 9999} name={t}></Badge>
+              ))}
+            </div>
+            <h2 className="card-title banner-font text-[#131313] font-bold">
+              {bookName}
+            </h2>
+            <p className="text-[#131313CC] font-medium">By : {author}</p>
           </div>
-          <h2 className="card-title banner-font text-[#131313] font-bold">
-            {bookName}
-          </h2>
-          <p className="text-[#131313CC] font-medium">By : {author}</p>
+          <hr className="border-t border-[#13131326] border-dashed mb-2" />
+          <div className="flex justify-between">
+            <p className="text-[#131313CC] font-medium">{category}</p>
+            <p className="text-[#131313CC] font-medium flex">
+              {rating} {star}
+            </p>
+          </div>
         </div>
-        <hr className="border-t border-[#13131326] border-dashed mb-2" />
-        <div className="flex justify-between">
-          <p className="text-[#131313CC] font-medium">{category}</p>
-          <p className="text-[#131313CC] font-medium flex">
-            {rating} {star}
-          </p>
-        </div>
-      </div>
+      </Link>
     </>
   );
 }
