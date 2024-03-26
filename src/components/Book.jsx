@@ -8,59 +8,37 @@ function Badge({name}) {
   );
 }
 function handleRead(data) {
-  const db = localStorage.getItem("read");
-  if (!db) {
-    let arr = [];
-    arr.push(data);
-    localStorage.setItem("read", JSON.stringify(arr));
-    console.log("Created item");
+  const db = JSON.parse(localStorage.getItem("read")) || [];
+  const exists = db.find((e) => e.bookId == data.bookId);
+  if (exists) {
+    return console.log("item already exists");
   } else {
-    const parsedDb = JSON.parse(db);
-    const exists = parsedDb.find((e) => e.bookId == data.bookId);
-    if (exists) {
-      return console.log("item already exists");
-    } else {
-      parsedDb.push(data);
-      localStorage.setItem("read", JSON.stringify(parsedDb));
-      console.log("pushed new data");
-    }
+    db.push(data);
+    localStorage.setItem("read", JSON.stringify(db));
   }
 }
 
 function handleWishlist(data) {
-  const readDb = localStorage.getItem("read");
-  const wishDb = localStorage.getItem("wishlist");
+  const readDb = JSON.parse(localStorage.getItem("read")) || [];
+  const wishDb = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-  if (readDb) {
-    const parsedDb = JSON.parse(readDb);
-    const exists = parsedDb.find((e) => e.bookId == data.bookId);
-    if (exists) {
-      return console.log("You already read this book");
-    } else {
-      if (wishDb) {
-        const parsedWishDb = JSON.parse(wishDb);
-        const exists = parsedWishDb.find((e) => e.bookId == data.bookId);
-        if (exists) {
-          return console.log("You already wishlisted this book");
-        } else {
-          parsedWishDb.push(data);
-          localStorage.setItem("wishlist", JSON.stringify(parsedWishDb));
-          console.log("pushed new wishdata");
-        }
-      } else {
-        let arr = [];
-        arr.push(data);
-        localStorage.setItem("wishlist", JSON.stringify(arr));
-        console.log("Created new wish");
-      }
-    }
+  const isBookAlreadyRead = readDb.find((e) => e.bookId === data.bookId);
+  const isBookAlreadyWishlisted = wishDb.find((e) => e.bookId === data.bookId);
+
+  if (isBookAlreadyRead) {
+    console.log("You already read this book");
+  } else if (isBookAlreadyWishlisted) {
+    console.log("You already wishlisted this book");
+  } else {
+    wishDb.push(data);
+    localStorage.setItem("wishlist", JSON.stringify(wishDb));
+    console.log("Pushed new data to wishlist");
   }
 }
 
 export default function Book() {
   const {id} = useParams();
   const loadData = useLoaderData();
-  console.log(localStorage.getItem("read"));
   const data = loadData[id - 1];
   if (!data.tags) return (window.location.href = "/");
   const {

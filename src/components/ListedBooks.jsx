@@ -7,7 +7,7 @@ export default function ListedBooks() {
   useEffect(() => {
     const readData = localStorage.getItem("read");
     if (readData) setRead(JSON.parse(readData));
-    const wishData = localStorage.getItem("read");
+    const wishData = localStorage.getItem("wishlist");
     if (wishData) setWishlist(JSON.parse(wishData));
   }, []);
   return (
@@ -18,8 +18,8 @@ export default function ListedBooks() {
           name="my_tabs_2"
           role="tab"
           className="tab"
-          aria-label="Read Books"
-          checked
+          aria-label="Read&nbsp;Books"
+          defaultChecked
         />
         <div
           role="tabpanel"
@@ -27,7 +27,7 @@ export default function ListedBooks() {
         >
           <div className="flex flex-col gap-4 my-6">
             {read.map((d) => (
-              <ListCard key={d.id} data={d}></ListCard>
+              <ListCard key={d.id * Math.random()} data={d}></ListCard>
             ))}
           </div>
         </div>
@@ -37,13 +37,17 @@ export default function ListedBooks() {
           name="my_tabs_2"
           role="tab"
           className="tab"
-          aria-label="Wishlist Books"
+          aria-label="Wishlist&nbsp;Books"
         />
         <div
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
         >
-          Tab content 2
+          <div className="flex flex-col gap-4 my-6">
+            {wishlist.map((d) => (
+              <ListCard key={d.id * Math.random()} data={d}></ListCard>
+            ))}
+          </div>
         </div>
       </div>
     </>
