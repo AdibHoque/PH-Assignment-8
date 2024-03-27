@@ -9,7 +9,7 @@ function Accordions({data}) {
   const {question, answer} = data;
   return (
     <div className="collapse collapse-plus bg-base-200 mb-2 animate-fade-up animate-once">
-      <input type="radio" name="my-accordion-3" defaultChecked />
+      <input type="radio" name="my-accordion-3" />
       <div className="collapse-title text-xl font-bold">{question}</div>
       <div className="collapse-content">
         <p>{answer}</p>
@@ -34,7 +34,7 @@ export default function FAQ() {
       </div>
       <div className="join join-vertical w-full">
         <div className="collapse collapse-plus bg-base-200 mb-2 animate-fade-up animate-once">
-          <input type="radio" name="my-accordion-3" />
+          <input type="radio" name="my-accordion-3" defaultChecked />
           <div className="collapse-title text-xl font-bold">
             What is BookBash?
           </div>
