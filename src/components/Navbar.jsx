@@ -23,11 +23,16 @@ export default function NavBar() {
           Pages to Read
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/ratings" className={navClass}>
+          Ratings
+        </NavLink>
+      </li>
     </>
   );
   return (
     <div className="navbar bg-base-100">
-      <div className="navbar-start">
+      <div className="navbar-start animate-fade-right animate-once">
         <div className="dropdown">
           <div
             tabIndex={0}
@@ -60,10 +65,10 @@ export default function NavBar() {
           Book Bash
         </Link>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden lg:flex animate-fade-up animate-once">
         <ul className="menu menu-horizontal px-2">{links}</ul>
       </div>
-      <div className="navbar-end flex gap-3">
+      <div className="navbar-end flex gap-3 animate-fade-left animate-once">
         <a className="btn text-white bg-[#23BE0A]">Sign In</a>
         <a className="btn text-white bg-[#59C6D2]">Sign Up</a>
       </div>

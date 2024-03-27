@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 export default function Banner() {
   return (
     <>
-      <div className="hero min-h-60 bg-base-200 rounded-2xl my-2 py-8">
+      <div className="hero min-h-60 bg-base-200 rounded-2xl my-2 py-8 animate-fade-down animate-once">
         <div className="hero-content flex-col lg:flex-row-reverse md:px-16">
           <img
             src="https://i.ibb.co/fpPfvXr/book1.png"

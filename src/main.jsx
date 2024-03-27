@@ -10,6 +10,7 @@ import Book from "./components/Book.jsx";
 import ListedBooks from "./components/ListedBooks.jsx";
 import PagesToRead from "./components/PagesToRead.jsx";
 import "react-toastify/dist/ReactToastify.css";
+import Ratings from "./components/Ratings.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         path: "/books/:id",
         element: <Book></Book>,
         loader: () => fetch("data.json"),
+      },
+      {
+        path: "/ratings",
+        element: <Ratings></Ratings>,
       },
     ],
   },
