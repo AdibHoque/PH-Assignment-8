@@ -1,4 +1,9 @@
 import {useEffect, useState} from "react";
+import PropTypes from "prop-types";
+
+Accordions.propTypes = {
+  data: PropTypes.object,
+};
 
 function Accordions({data}) {
   const {question, answer} = data;
@@ -22,8 +27,8 @@ export default function FAQ() {
   }, []);
   return (
     <>
-      <div className="bg-[#1313130D] w-full rounded-2xl p-5 mb-4">
-        <h1 className="text-center font-bold text-[#131313] text-3xl">
+      <div className="bg-[#1313130D] w-full rounded-2xl p-5 animate-fade animate-once mb-2">
+        <h1 className="text-center font-bold text-[#131313] text-3xl animate-fade animate-delay-200 animate-once">
           Frequently Asked Questions
         </h1>
       </div>

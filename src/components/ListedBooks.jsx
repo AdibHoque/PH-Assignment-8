@@ -47,14 +47,14 @@ export default function ListedBooks() {
   return (
     <>
       <div className="w-full flex flex-col justify-center items-center gap-y-2">
-        <div className="bg-[#1313130D] w-full rounded-2xl p-5">
-          <h1 className="text-center font-bold text-[#131313] text-3xl">
+        <div className="bg-[#1313130D] w-full rounded-2xl p-5 animate-fade animate-once">
+          <h1 className="text-center font-bold text-[#131313] text-3xl animate-fade animate-delay-200 animate-once">
             Books
           </h1>
         </div>
         <select
           onChange={handleSort}
-          className="select select-bordered w-full mb-2 max-w-[12rem] font-semibold text-center bg-[#23BE0A] text-white"
+          className="select select-bordered w-full mb-2 max-w-[12rem] font-semibold text-center bg-[#23BE0A] text-white animate-fade animate-delay-200 animate-once"
         >
           <option defaultValue>Sort By</option>
           <option>Rating</option>
@@ -76,7 +76,7 @@ export default function ListedBooks() {
           role="tabpanel"
           className="tab-content bg-base-100 border-base-300 rounded-box p-6"
         >
-          <div className="flex flex-col gap-4 my-6">
+          <div className="flex flex-col gap-4 my-6 animate-fade-up animate-once">
             {read.map((d) => (
               <ListCard
                 key={Math.round(Math.random() * 9999)}

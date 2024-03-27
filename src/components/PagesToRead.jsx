@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
 import {
   BarChart,
   Bar,
@@ -9,6 +8,8 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
+
+import PropTypes from "prop-types";
 
 const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
 
@@ -25,10 +26,19 @@ const getPath = (x, y, width, height) => {
 
 const TriangleBar = (props) => {
   const {fill, x, y, width, height} = props;
+  // console.log(typeof fill, typeof x, typeof y, typeof width, typeof height);
+  // string number number number number
 
   return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
 };
 
+TriangleBar.propTypes = {
+  fill: PropTypes.string,
+  x: PropTypes.number,
+  y: PropTypes.number,
+  width: PropTypes.number,
+  height: PropTypes.number,
+};
 export default function PagesToRead() {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -47,8 +57,8 @@ export default function PagesToRead() {
     );
   return (
     <>
-      <div className="bg-[#1313130D] w-full rounded-2xl p-5">
-        <h1 className="text-center font-bold text-[#131313] text-3xl">
+      <div className="bg-[#1313130D] w-full rounded-2xl p-5 animate-fade animate-once mb-2">
+        <h1 className="text-center font-bold text-[#131313] text-3xl animate-fade animate-delay-200 animate-once">
           Pages To Read
         </h1>
       </div>

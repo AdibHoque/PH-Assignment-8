@@ -2,6 +2,14 @@ import {Link} from "react-router-dom";
 import people from "/people.svg";
 import page from "/page.svg";
 import location from "/location.svg";
+import PropTypes from "prop-types";
+
+Badge.propTypes = {
+  name: PropTypes.string,
+};
+ListCard.propTypes = {
+  data: PropTypes.object,
+};
 
 function Badge({name}) {
   return (
@@ -26,7 +34,7 @@ export default function ListCard({data}) {
   } = data;
   return (
     <>
-      <div className="flex flex-col lg:flex-row gap-2">
+      <div className="flex flex-col lg:flex-row gap-2 animate-fade animate-once">
         <div className="bg-[#1313130D] py-6 md:px-10 flex justify-center items-center">
           <img
             className="max-h-[30vh] w-48 animate-once animate-fade"

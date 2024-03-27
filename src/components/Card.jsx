@@ -1,5 +1,14 @@
 import {Link} from "react-router-dom";
 import star from "/star.svg";
+import PropTypes from "prop-types";
+
+Badge.propTypes = {
+  name: PropTypes.string,
+};
+
+Card.propTypes = {
+  data: PropTypes.object,
+};
 
 function Badge({name}) {
   return (

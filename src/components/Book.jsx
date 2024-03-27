@@ -1,5 +1,10 @@
 import {useLoaderData, useParams} from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify";
+import PropTypes from "prop-types";
+
+Badge.propTypes = {
+  name: PropTypes.string,
+};
 
 function Badge({name}) {
   return (
