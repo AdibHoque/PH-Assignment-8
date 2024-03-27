@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom";
-import people from "/public/people.svg";
-import page from "/public/page.svg";
-import location from "/public/location.svg";
+import people from "/people.svg";
+import page from "/page.svg";
+import location from "/location.svg";
 
 function Badge({name}) {
   return (

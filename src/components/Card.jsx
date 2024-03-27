@@ -1,5 +1,5 @@
 import {Link} from "react-router-dom";
-import star from "/public/star.svg";
+import star from "/star.svg";
 
 function Badge({name}) {
   return (

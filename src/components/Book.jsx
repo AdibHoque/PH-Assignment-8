@@ -1,4 +1,5 @@
 import {useLoaderData, useParams} from "react-router-dom";
+import {ToastContainer, toast} from "react-toastify";
 
 function Badge({name}) {
   return (
@@ -11,10 +12,11 @@ function handleRead(data) {
   const db = JSON.parse(localStorage.getItem("read")) || [];
   const exists = db.find((e) => e.bookId == data.bookId);
   if (exists) {
-    return console.log("item already exists");
+    return toast.error("You already added this Book to Read list!");
   } else {
     db.push(data);
     localStorage.setItem("read", JSON.stringify(db));
+    return toast.success("Added this Book to the Read list!");
   }
 }
 
@@ -26,13 +28,13 @@ function handleWishlist(data) {
   const isBookAlreadyWishlisted = wishDb.find((e) => e.bookId === data.bookId);
 
   if (isBookAlreadyRead) {
-    console.log("You already read this book");
+    return toast.error("You already Read this Book!");
   } else if (isBookAlreadyWishlisted) {
-    console.log("You already wishlisted this book");
+    return toast.error("You already Wishlisted this Book!");
   } else {
     wishDb.push(data);
     localStorage.setItem("wishlist", JSON.stringify(wishDb));
-    console.log("Pushed new data to wishlist");
+    return toast.success("Added this Book to the Wishlist!");
   }
 }
 
@@ -55,6 +57,7 @@ export default function Book() {
   } = data;
   return (
     <>
+      <ToastContainer />
       <div className="flex flex-col lg:flex-row gap-2">
         <div className="lg:w-1/2 bg-[#1313130D] p-10 flex justify-center items-center">
           <img
@@ -81,7 +84,7 @@ export default function Book() {
           <div className="my-4 flex gap-4 items-center">
             <h3 className="text-[#131313] font-bold">Tag</h3>
             {tags.map((t) => (
-              <Badge key={Math.random() * 9999} name={t}></Badge>
+              <Badge key={Math.round(Math.random() * 9999)} name={t}></Badge>
             ))}
           </div>
           <hr className="border-t border-[#13131326] my-3" />

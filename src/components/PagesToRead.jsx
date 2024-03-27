@@ -35,7 +35,7 @@ export default function PagesToRead() {
     const readDb = JSON.parse(localStorage.getItem("read")) || [];
     let arr = [];
     readDb.forEach((e) => {
-      arr.push({name: e.bookName.slice(0, 15) + "...", pages: e.totalPages});
+      arr.push({name: e.bookName, pages: e.totalPages});
     });
     setData(arr);
   }, []);

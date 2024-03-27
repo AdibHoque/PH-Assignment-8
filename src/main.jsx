@@ -9,6 +9,7 @@ import Home from "./components/Home.jsx";
 import Book from "./components/Book.jsx";
 import ListedBooks from "./components/ListedBooks.jsx";
 import PagesToRead from "./components/PagesToRead.jsx";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
