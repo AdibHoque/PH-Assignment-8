@@ -21,7 +21,7 @@ export default function Card({data}) {
           <div className="my-4">
             <div className="flex gap-x-2 mb-2">
               {tags.map((t) => (
-                <Badge key={Math.random() * 9999} name={t}></Badge>
+                <Badge key={Math.round(Math.random() * 9999)} name={t}></Badge>
               ))}
             </div>
             <h2 className="card-title banner-font text-[#131313] font-bold">

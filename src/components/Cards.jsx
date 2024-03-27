@@ -15,7 +15,7 @@ export default function Cards() {
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 my-6">
         {data.map((d) => (
-          <Card key={Math.random()} data={d}></Card>
+          <Card key={Math.round(Math.random() * 9999)} data={d}></Card>
         ))}
       </div>
     </>
