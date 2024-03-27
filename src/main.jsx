@@ -11,6 +11,7 @@ import ListedBooks from "./components/ListedBooks.jsx";
 import PagesToRead from "./components/PagesToRead.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import Ratings from "./components/Ratings.jsx";
+import FAQ from "./components/FAQ.jsx";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/ratings",
         element: <Ratings></Ratings>,
+      },
+      {
+        path: "/faq",
+        element: <FAQ></FAQ>,
       },
     ],
   },

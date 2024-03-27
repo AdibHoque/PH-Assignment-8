@@ -28,20 +28,25 @@ export default function NavBar() {
           Ratings
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/faq" className={navClass}>
+          FAQ
+        </NavLink>
+      </li>
     </>
   );
   return (
     <div className="navbar bg-base-100">
-      <div className="navbar-start animate-fade-right animate-once">
+      <div className="navbar-start">
         <div className="dropdown">
           <div
             tabIndex={0}
             role="button"
-            className="p-2 mr-2 btn btn-ghost btn-md bg-[#23BE0A] lg:hidden"
+            className="p-2 mr-2 btn btn-ghost btn-md bg-[#23BE0A] animate-fade animate-once lg:hidden"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="size-8 text-white"
+              className="size-8 text-white "
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -56,12 +61,12 @@ export default function NavBar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[100] p-2 shadow bg-base-100 rounded-box w-52"
           >
             {links}
           </ul>
         </div>
-        <Link className="text-[#131313] hover:text-[#23BE0A] font-bold text-2xl lg:text-3xl leading-6">
+        <Link className="text-[#131313] hover:text-[#23BE0A] font-bold text-2xl lg:text-3xl leading-6 animate-fade-right animate-once">
           Book Bash
         </Link>
       </div>
